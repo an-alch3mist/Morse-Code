@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -133,17 +133,17 @@ public class DEBUG_MORSE_CODE : MonoBehaviour
 					}
 
 
-					// play audio at begining of space down //
-					if(KEY_DOWN_TIME == 0)
+					if (KEY_DOWN_TIME == 0)
 					{
-						audio.Play(); 
+						// play audio at begining of space down //
+						audio.Play();
+						// play audio at begining of space down //
+						str_log_required = true;
 					}
-					// play audio at begining of space down //
 
 					KEY_DOWN_TIME = KEY_DOWN_TIME + dt;
 					// Debug.Log(KEY_DOWN_TIME);
 					//
-					str_log_required = true;
 
 
 					
@@ -188,9 +188,8 @@ public class DEBUG_MORSE_CODE : MonoBehaviour
 						Debug.Log("matched morse-letter: " + matched_morse_letter);
 
 
-
+						str_log_required = false; // logged
 						str_sos = ""; // clear
-						str_log_required = false;
 					}
 
 
