@@ -126,21 +126,22 @@ public class DEBUG_MORSE_CODE : MonoBehaviour
 				//
 				if(Input.GetKey(KeyCode.Space))
 				{
+					// instant key up to down //
 					if(KEY_UP_TIME != 0)
 					{
 						//
 						KEY_UP_TIME = 0;
 					}
 
-
 					if (KEY_DOWN_TIME == 0)
 					{
-						// play audio at begining of space down //
 						audio.Play();
-						// play audio at begining of space down //
 						str_log_required = true;
 					}
+					// instant key up to down //
 
+
+					// during keydown //
 					KEY_DOWN_TIME = KEY_DOWN_TIME + dt;
 					// Debug.Log(KEY_DOWN_TIME);
 					//
@@ -150,6 +151,7 @@ public class DEBUG_MORSE_CODE : MonoBehaviour
 				}
 				else
 				{
+					// instant key down to up //
 					if (KEY_DOWN_TIME != 0)
 					{
 						char sos = '.';
@@ -169,9 +171,10 @@ public class DEBUG_MORSE_CODE : MonoBehaviour
 
 						audio.Stop();
 					}
+					// instant key down to up //
 
-					//
-					KEY_UP_TIME = KEY_UP_TIME + dt;
+
+					// up time exeed limit //
 					if (KEY_UP_TIME >= time_letter && str_log_required == true)
 					{
 						Debug.Log(str_sos);
@@ -191,6 +194,11 @@ public class DEBUG_MORSE_CODE : MonoBehaviour
 						str_log_required = false; // logged
 						str_sos = ""; // clear
 					}
+					// up time exeed limit //
+
+
+					//
+					KEY_UP_TIME = KEY_UP_TIME + dt;
 
 
 				}
